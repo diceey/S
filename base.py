@@ -35,7 +35,7 @@ elif tok == "\n" or tok == "<EOF>":
       print("NUMBER")
       expr += tok
       tok = ""
-      elif tok == "+":
+      elif tok == "+" or tok == "-" or tok == "/" or tok == "*" or tok == "(" or tok == ")":
         isexpr = 1
         expr += tok
         tok = ""
@@ -51,15 +51,21 @@ elif tok == "\n" or tok == "<EOF>":
             string += tok
             tok = ""
             print(expr)
-            print(tokens)
-            return tokens
             #print(tokens)
+            return tokens
+          
+          def doPRINT():
     
     def parse(toks):
         i = 0
         while(i < len(toks)):
-          if toks[i] + " " + toks[i+1][0:6] == "PRINT STRING":
+          if toks[i] + " " + toks[i+1][0:6] == "PRINT STRING" or toks[i] + " " + toks[i+1][0:4] == "PRINT EXPR":
+            if toks[i+1][0:6] == "STRING":
             print(toks[i+1][7:])
+            elif toks[i+1][0:3] == "NUM"
+            print(toks[i+1[4:]])
+            elif toks[i+1][0:4] == "EXPR"
+            print(toks[i+1[5:]])
             i+=2   
     
 def run():
